@@ -18,14 +18,15 @@ def print_menu(list_print, argument=None):
                         print(f"Ваше значение не верно, введите число в диапазоне от 1 до {len(list_print) - 1}: ")
 
 def save_file(file_name, contact_list):
-        with open(file_name,"w") as file:
+        with open(file_name,"w",encoding='UTF-8') as file:
                 [file.write(f"{string[0]};{string[1]};{string[2]}\n") for string in contact_list]
         file.close()
         print(f"Данные успешно сохранены в файл {file_name}")
+        
 def open_file(file_name):
         tel_cont = []
         try:
-                with open(file_name,"r") as file:
+                with open(file_name,"r", encoding='UTF-8') as file:
                         data_tel=file.readlines()
                         [tel_cont.append(tel_item.split(";")) for tel_item in data_tel]
                         for i in range(len(tel_cont)):
